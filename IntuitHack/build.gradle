@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:0.13.+'
     }
 }
 apply plugin: 'android'
@@ -12,9 +12,13 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.0"
+}
+
 android {
     compileSdkVersion 17
-    buildToolsVersion "18.0.1"
+    buildToolsVersion "19.0.0"
 
     sourceSets {
         main {
