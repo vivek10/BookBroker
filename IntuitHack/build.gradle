@@ -9,6 +9,10 @@ buildscript {
 apply plugin: 'android'
 
 dependencies {
+    repositories {
+        mavenCentral()
+    }
+    compile 'com.facebook.android:facebook-android-sdk:+'
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
@@ -18,7 +22,7 @@ task wrapper(type: Wrapper) {
 
 android {
     compileSdkVersion 17
-    buildToolsVersion "19.0.0"
+    buildToolsVersion "19.1.0"
 
     sourceSets {
         main {
@@ -29,6 +33,7 @@ android {
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
+            jni.srcDirs = ['libs/armeabi']
         }
 
         // Move the tests to tests/java, tests/res, etc...
